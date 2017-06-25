@@ -1,0 +1,12 @@
+{{#paper-card as |card|}}
+  {{#card.title as |title|}}
+    {{#title.text as |text|}}
+      {{#text.headline}}{{mod.title}}{{/text.headline}}
+      {{#text.subhead}}{{mod.subtitle}}{{/text.subhead}}
+    {{/title.text}}
+  {{/card.title}}
+  {{#card.content}}
+    <span class="modtype">Type:</span> {{mod.type}}
+    <span>Version:</span> {{mod.version}}
+  {{/card.content}}
+{{/paper-card}}

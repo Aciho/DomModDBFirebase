@@ -1,0 +1,34 @@
+{{#paper-sidenav-container class="site-nav-container"}}
+  {{#paper-sidenav class="md-whiteframe-z2 site-sidenav" lockedOpen="gt-sm"
+                   open=isSidenavOpen onToggle=(action (mut isSidenavOpen))}}
+    {{#paper-toolbar class="site-content-toolbar" tall=true}}
+      <div class="logo layout-column layout-align-center-center">
+        <div class="container">
+          <img src="/images/ophanim.png">
+          <div class="dom4-name">Dominions 4</div>
+        </div>
+        <div class="moddb-name">ModDB</div>
+      </div>
+    {{/paper-toolbar}}
+
+    {{#paper-content}}
+      {{#menu-item onClick=(transition-to "index")}}Introduction{{/menu-item}}
+      {{#menu-item  onClick=(action "filterMods" "all")}}All Mods{{/menu-item}}
+
+      {{paper-divider}}
+      <div class="layout-column layout-align-center-stretch">
+        <br>
+        {{#paper-button raised=true primary=true onClick=(action "showUploadDialog") id="showUploadDialog"}}Upload{{/paper-button}}
+      </div>
+
+    {{/paper-content}}
+  {{/paper-sidenav}}
+
+<div class="flex layout-column" tabindex="-1" role="main">
+  {{#if showDialog}}
+    {{upload-dialog doClose=(action "closeUploadDialog")}}
+  {{/if}}
+  {{outlet}}
+</div>
+
+{{/paper-sidenav-container}}
