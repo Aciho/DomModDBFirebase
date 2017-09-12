@@ -1,9 +1,11 @@
 {{page-toolbar pageTitle="Mods"}}
 
-{{#paper-content scroll-y=true class="layout-padding flex"}}
-  <div class="doc-content">
-    {{#each model as |mod|}}
-      {{mod-listing mod=mod}}
-    {{/each}}
-  </div>
+{{#paper-content class="all-mods"}}
+  {{#paper-content scroll-y=true class="layout-padding flex"}}
+    <div class="doc-content">
+      {{#each model as |mod|}}
+        {{mod-listing mod=mod}}
+      {{/each}}
+    </div>
+  {{/paper-content}}
 {{/paper-content}}

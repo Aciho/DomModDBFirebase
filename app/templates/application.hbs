@@ -18,9 +18,13 @@
       {{paper-divider}}
       <div class="layout-column layout-align-center-stretch">
         <br>
-        {{#paper-button raised=true primary=true onClick=(action "showUploadDialog") id="showUploadDialog"}}Upload{{/paper-button}}
+        {{#paper-button raised=true accent=true onClick=(action "showUploadDialog") id="showUploadDialog"}}Upload{{/paper-button}}
       </div>
 
+    {{/paper-content}}
+    <span class="flex"></span>
+    {{#paper-content}}
+      &nbsp;&nbsp;&nbsp;about
     {{/paper-content}}
   {{/paper-sidenav}}
 

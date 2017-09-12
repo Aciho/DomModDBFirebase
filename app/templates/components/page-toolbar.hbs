@@ -5,18 +5,18 @@
         {{paper-icon "menu"}}
       {{/paper-button}}
     {{/paper-sidenav-toggle}}
-    <h2>
+    <h1>
       {{pageTitle}}
-    </h2>
+    </h1>
     <span class="flex"></span>
     {{#if loggedIn}}
       {{#paper-button mini=true aria-label="Favorite"}}
         {{paper-icon "person"}}
       {{/paper-button}}
     {{else}}
-      <h5>
+      <h2>
       Register or Login
-      </h5>
+      </h2>
     {{/if}}
   {{/toolbar.tools}}
 {{/paper-toolbar}}

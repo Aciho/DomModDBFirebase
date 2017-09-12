@@ -1,11 +1,11 @@
 {{#link-to "mod" mod class="quietLink"}}
-{{#paper-card class="mod-listing" style="background-color:#aa33aa" as |card|}}
-  {{#card.title as |title|}}
-    {{#title.text color=mod.fgColor as |text|}}
-      {{#text.headline}}{{mod.title}}{{/text.headline}}
-      {{#text.subhead}}{{mod.subtitle}}{{/text.subhead}}
-    {{/title.text}}
-  {{/card.title}}
+{{#paper-card class="mod-listing" as |card|}}
+  {{#paper-toolbar class="mod-listing-title"}}
+    {{#paper-toolbar-tools}}
+      <h1>{{mod.title}}</h1>&nbsp;&nbsp;-&nbsp;&nbsp;
+      <h2>{{mod.subtitle}}</h2>
+    {{/paper-toolbar-tools}}
+  {{/paper-toolbar}}
   {{#card.content}}
     <span class="modtype">Type:</span> {{mod.type}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Latest Version:</span> {{mod.version}}
   {{/card.content}}
