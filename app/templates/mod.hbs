@@ -1,0 +1,17 @@
+{{page-toolbar pageTitle="Mod Details"}}
+
+{{#paper-card class="mod-detail" as |card|}}
+  {{#card.title as |title|}}
+    {{#title.text as |text|}}
+      {{#text.headline}}{{model.title}}{{/text.headline}}
+      {{#text.subhead}}{{model.subtitle}}{{/text.subhead}}
+    {{/title.text}}
+  {{/card.title}}
+  {{#card.content}}
+    <p>{{model.description}}</p>
+    <span class="modtype">Type:</span> {{model.type}} &nbsp;&nbsp;&nbsp;&nbsp;<span>Version:</span> {{model.version}}
+  {{/card.content}}
+  {{#card.actions}}
+    {{#paper-button onClick=(action "downloadButton")}}Download{{/paper-button}}
+  {{/card.actions}}
+{{/paper-card}}

@@ -19,7 +19,16 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-
+  app.import('bower_components/jszip/dist/jszip.js', {
+    using: [
+      { transformation: 'amd', as: 'jszip' }
+    ]
+  });
+  app.import('bower_components/random-string-generator/dist/random.js', {
+    using: [
+      { transformation: 'amd', as: 'random' }
+    ]
+  });
 
   return app.toTree();
 };

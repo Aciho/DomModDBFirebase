@@ -8,5 +8,15 @@
     <h2>
       {{pageTitle}}
     </h2>
+    <span class="flex"></span>
+    {{#if loggedIn}}
+      {{#paper-button mini=true aria-label="Favorite"}}
+        {{paper-icon "person"}}
+      {{/paper-button}}
+    {{else}}
+      <h5>
+      Register or Login
+      </h5>
+    {{/if}}
   {{/toolbar.tools}}
 {{/paper-toolbar}}

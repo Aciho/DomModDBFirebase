@@ -1,0 +1,22 @@
+{
+  "name": "dom-mod-dbfirebase",
+  "description": "dominions 4 mod DB using Firebase",
+  "main": "",
+  "authors": [
+    "Simon Watson <v2wm8ryazf@snkmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Aciho/DomModDBFirebase",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jszip": "^3.1.3",
+    "random-string-generator": "^0.1.0"
+  }
+}

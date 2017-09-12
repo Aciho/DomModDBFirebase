@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('mods');
+  this.route('mod', { path: '/mod/:dom-mod_id' });
 });
 
 export default Router;

@@ -1,4 +1,4 @@
-{{#paper-dialog class="flex-77" onClose=(action "closeDialog" "cancel") origin=dialogOrigin clickOutsideToClose=true}}
+{{#paper-dialog width=400 class="flex-nogrow" onClose=(action "closeDialog" "cancel") origin=dialogOrigin clickOutsideToClose=true}}
   {{#paper-toolbar}}
     {{#paper-toolbar-tools}}
       <h2 class="modal_header">Add new mod</h2>
@@ -7,50 +7,31 @@
     {{/paper-toolbar-tools}}
   {{/paper-toolbar}}
 
-  {{#if showForm}}
   {{#paper-form onSubmit=(action "submitFormAction") as |form|}}
     <div class="layout-column">
       <div class="layout-row layout-align-center-start">
-        {{form.input class="flex-20" label="Title" value=title onChange=(action (mut title)) required=true}}
-        {{form.input class="flex-40" label="Subtitle"value=subtitle onChange=(action (mut subtitle))}}
-
+        {{form.input class="flex-20" label="Title" value=title onChange=(action (mut title)) required=true disabled=disableForm}}
+        {{form.input class="flex-40" label="Subtitle"value=subtitle onChange=(action (mut subtitle)) disabled=disableForm}}
       </div>
       <div class="layout-row layout-align-center-start">
-        {{#form.select class="flex-20" options=groupedTypes selected=type label="Type" required=true value=type onChange=(action (mut type)) as |type|}}
+        {{#form.select class="flex-20" options=groupedTypes selected=type label="Type" required=true disabled=disableForm value=type onChange=(action (mut type)) as |type|}}
         {{type}}
         {{/form.select}}
-        {{form.input class="flex-20" label="Version" value=version onChange=(action (mut version)) required=true}}
+        {{form.input class="flex-20" label="Version" value=version onChange=(action (mut version)) required=true disabled=disableForm}}
       </div>
       <div class="layout-row layout-align-center-start">
-        {{form.input textarea=true block=true maxlength=500 class="flex-90" passThru=(hash rows=5 maxRows=5)
+        {{form.input textarea=true block=true maxlength=1000 class="flex-90" passThru=(hash rows=5 maxRows=5) disabled=disableForm
                      label="Description" value=description onChange=(action (mut description))}}
       </div>
-      <div class="layout-row layout-align-center-start">
-        <input
-          multiple="false"
-          onchange={{action "uploadArchiveAction"}}
-            accept="application/zip"
-          type="file"
-          value="fileToUpload"
-        />      </div>
+      <div class="layout-row layout-align-center-center">
+      {{#paper-content class="flex-50"}}
+          Please choose a mod file to upload from your hard drive.<br>This should be a zip file containing the .dm file in the root, with a folder containing any images.
+      {{/paper-content}}
+        <input title="fileInput" accept="application/zip" multiple="false" onchange={{action "uploadArchiveAction"}} value="fileToUpload" type="file"/>
+      </div>
     </div>
     <div class="layout-row layout-align-center-end">
-      {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}
+      {{#form.submit-button raised=true primary=true disabled=form.isInvalid}}Submit{{/form.submit-button}}
     </div>
   {{/paper-form}}
-  {{else}}
-    {{#paper-dialog-content}}
-      <p>
-        Please choose a mod file to upload from your hard drive. This should be a zip file containing the .dm file in the
-        root, with a folder containing any images.
-      </p>
-      {{#file-upload name="photos"
-                     accept="image/*"
-                     multiple=true
-                     onfileadd=(route-action "uploadImage")}}
-        <a id="upload-image" tabindex=0>Add an Image.</a>
-      {{/file-upload}}
-    {{/paper-dialog-content}}
-  {{/if}}
-
 {{/paper-dialog}}
