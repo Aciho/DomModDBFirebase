@@ -1,2 +1,17 @@
 {{page-toolbar pageTitle="Login"}}
 
+<div class="standard-container">
+  {{#paper-card class="flex-95" id="my-card" as |card|}}
+    {{#paper-form onSubmit=(action "disabledSubmitAction") as |form|}}
+      <div class="layout-row">
+        {{form.input class="flex-30" label="E-mail" type="email" value=email onChange=(action (mut email)) customValidations=emailValidation required=true}}
+        {{form.input class="flex-40" label="Password" type="password" value=password onChange=(action (mut password)) minlength=6 required=true}}
+      </div>
+      <div class="layout-row">
+        {{#form.submit-button raised=true primary=true disabled=form.isInvalid}}
+          Submit
+        {{/form.submit-button}}
+      </div>
+    {{/paper-form}}
+  {{/paper-card}}
+</div>

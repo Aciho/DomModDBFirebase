@@ -1,6 +1,7 @@
 {{page-toolbar pageTitle="Mod Details"}}
 
-{{#paper-card class="mod-detail" as |card|}}
+<div class="standard-container">
+{{#paper-card class="flex-95 mod-detail" id="my-card" as |card|}}
   {{#card.title as |title|}}
     {{#title.text as |text|}}
       {{#text.headline}}{{model.title}}{{/text.headline}}
@@ -15,3 +16,4 @@
     {{#paper-button onClick=(action "downloadButton")}}Download{{/paper-button}}
   {{/card.actions}}
 {{/paper-card}}
+</div>

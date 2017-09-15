@@ -6,18 +6,22 @@ export default Ember.Controller.extend({
     disabledSubmitAction(param) {
       console.log(this.get('email'));
       console.log(this.get('password'));
-      const storageRef = this.get('firebaseApp').storage().ref();
       const authRef = this.get('firebaseApp').auth();
-      console.log(storageRef, authRef);
       authRef.createUserWithEmailAndPassword(this.get('email'), this.get('password'))
         .then((response) => {
           console.log("responded");
           console.log(response);
+          this.get('firebaseApp').auth().updateProfile({
+            displayName: this.get('name')
+          })
+        })
+        .then(() => {
+          this.transitionToRoute('mods');
         })
         .catch(function(error) {
           // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
+          const errorCode = error.code;
+          const errorMessage = error.message;
           console.log(errorCode, errorMessage);
         });
     }

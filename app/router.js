@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('mod', { path: '/mod/:dom-mod_id' });
   this.route('register');
   this.route('login');
+  this.route('user');
 });
 
 export default Router;
