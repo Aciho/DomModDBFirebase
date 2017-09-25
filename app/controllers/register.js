@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
         .then((response) => {
           console.log("responded");
           console.log(response);
-          this.get('firebaseApp').auth().updateProfile({
+          this.get('firebaseApp').auth().currentUser.updateProfile({
             displayName: this.get('name')
           })
         })

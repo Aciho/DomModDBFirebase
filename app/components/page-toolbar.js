@@ -8,18 +8,19 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     this.get('firebaseApp').auth().onAuthStateChanged((user) => {
-      console.log("auth changed");
+      if (this.isDestroyed) {
+        return;
+      }
+
       this.user = user;
-      this.set('loginResponse', true);
+      Ember.trySet(this, 'loginResponse', true);
 
       if (user) {
-        this.set('loggedIn', true);
-        this.set('displayName', user.displayName);
-        console.log("logged in");
+        Ember.trySet(this, 'loggedIn', true);
+        Ember.trySet(this, 'displayName', user.displayName);
       } else {
-        this.set('loggedIn', false);
-        this.set('displayName', "");
-        console.log("logged out");
+        Ember.trySet(this, 'loggedIn', false);
+        Ember.trySet(this, 'displayName', "");
       }
     });
   }
